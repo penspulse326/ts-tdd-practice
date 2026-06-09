@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'vitest';
+
 import { ProbabilitySystem } from '../features/ProbabilitySystem';
 
 describe('probability system', () => {
   test('lose', () => {
-    const sut = new ProbabilitySystem()
+    const sut = new ProbabilitySystem();
     expect(sut.spin()).toBe(0);
-  })
+  });
 });
-
