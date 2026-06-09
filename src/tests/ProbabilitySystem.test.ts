@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'vitest';
+import { ProbabilitySystem } from '../features/ProbabilitySystem';
 
 describe('probability system', () => {
   test('lose', () => {
@@ -7,8 +8,3 @@ describe('probability system', () => {
   })
 });
 
-class ProbabilitySystem {
-  spin(): number {
-    return 0;
-  }
-}
