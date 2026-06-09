@@ -6,3 +6,9 @@ describe('probability system', () => {
     expect(sut.spin()).toBe(0);
   })
 });
+
+class ProbabilitySystem {
+  spin(): number {
+    return 0;
+  }
+}
