@@ -1,18 +1,15 @@
+import { Reels } from './Reels';
+
 export class ProbabilitySystem {
-  private readonly reels: Array<Array<string>> = [
+  private readonly reels: Reels = new Reels([
     ['A', 'Q', 'K'],
     ['A', 'Q', 'K'],
     ['A', 'Q', 'K'],
     ['A', 'Q', 'K'],
     ['A', '10', 'J'],
-  ];
+  ]);
+
   spin(betLine: string): number {
-    const firstElementsSet = new Set<string>();
-
-    this.reels.forEach((reel) => {
-      firstElementsSet.add(reel[0]);
-    });
-
-    return firstElementsSet.size === 1 && betLine === 'L1' ? 20 : 0;
+    return this.reels.isRow1Hit() && betLine === 'L1' ? 20 : 0;
   }
 }
