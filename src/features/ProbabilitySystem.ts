@@ -1,5 +1,18 @@
 export class ProbabilitySystem {
+  private readonly reels: Array<Array<string>> = [
+    ['A', 'Q', 'K'],
+    ['A', 'Q', 'K'],
+    ['A', 'Q', 'K'],
+    ['A', 'Q', 'K'],
+    ['A', '10', 'J'],
+  ];
   spin(betLine: string): number {
-    return betLine === 'L1' ? 20 : 0;
+    const firstElementsSet = new Set<string>();
+
+    this.reels.forEach((reel) => {
+      firstElementsSet.add(reel[0]);
+    });
+
+    return firstElementsSet.size === 1 && betLine === 'L1' ? 20 : 0;
   }
 }
