@@ -1,15 +1,45 @@
 import { describe, expect, test } from 'vitest';
 
 import { ProbabilitySystem } from '../features/ProbabilitySystem';
+import { Reels } from '../features/Reels';
 
 describe('probability system', () => {
-  test('lose', () => {
-    const sut = new ProbabilitySystem();
+  test('Row1 hit, bet L2 -> 0', () => {
+    const sut = new ProbabilitySystem(
+      new Reels([
+        ['A', 'Q', 'K'],
+        ['A', 'Q', 'K'],
+        ['A', 'Q', 'K'],
+        ['A', 'Q', 'K'],
+        ['A', '10', 'J'],
+      ]),
+    );
     expect(sut.spin('L2')).toBe(0);
   });
 
-  test('L1 hit -> 20', () => {
-    const sut = new ProbabilitySystem();
+  test('Row1 hit, bet L1 -> 20', () => {
+    const sut = new ProbabilitySystem(
+      new Reels([
+        ['A', 'Q', 'K'],
+        ['A', 'Q', 'K'],
+        ['A', 'Q', 'K'],
+        ['A', 'Q', 'K'],
+        ['A', '10', 'J'],
+      ]),
+    );
     expect(sut.spin('L1')).toBe(20);
+  });
+
+  test('Row2 hit, bet L2 -> 20', () => {
+    const sut = new ProbabilitySystem(
+      new Reels([
+        ['A', 'Q', 'K'],
+        ['A', 'Q', 'K'],
+        ['A', 'Q', 'K'],
+        ['A', 'Q', 'K'],
+        ['10', 'Q', 'J'],
+      ]),
+    );
+    expect(sut.spin('L2')).toBe(20);
   });
 });

@@ -1,15 +1,20 @@
 import { Reels } from './Reels';
 
 export class ProbabilitySystem {
-  private readonly reels: Reels = new Reels([
-    ['A', 'Q', 'K'],
-    ['A', 'Q', 'K'],
-    ['A', 'Q', 'K'],
-    ['A', 'Q', 'K'],
-    ['A', '10', 'J'],
-  ]);
+  private readonly reels: Reels;
+
+  constructor(reels: Reels) {
+    this.reels = reels;
+  }
 
   spin(betLine: string): number {
-    return this.reels.isRow1Hit() && betLine === 'L1' ? 20 : 0;
+    if (this.reels.isRow1Hit() && betLine === 'L1') {
+      return 20;
+    }
+
+    if (this.reels.isRow2Hit() && betLine === 'L2') {
+      return 20;
+    }
+    return 0;
   }
 }
