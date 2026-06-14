@@ -5,6 +5,10 @@ export class Reels {
     this.reels = reels;
   }
 
+  static create(reels: Array<Array<string>>) {
+    return new Reels(reels);
+  }
+
   isRowHit(row: number): boolean {
     const uniqueElement = new Set<string>();
     for (let i = 0; i < 5; i++) {
