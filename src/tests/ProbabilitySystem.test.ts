@@ -58,6 +58,7 @@ describe('probability system', () => {
 
   test('Roll the Row3 hit, bet L3 -> 20', () => {
     const sut = new ProbabilitySystem(
+      1,
       Reels.create([
         ['9', 'A', 'Q', 'K'],
         ['9', 'A', 'Q', 'K'],
