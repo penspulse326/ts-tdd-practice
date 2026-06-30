@@ -6,7 +6,7 @@ import { Reels } from '../features/Reels';
 describe('probability system', () => {
   test('Row1 hit, bet L2 -> 0', () => {
     const sut = new ProbabilitySystem(
-      Reels.create([
+      Reels.create(0, [
         ['A', 'Q', 'K'],
         ['A', 'Q', 'K'],
         ['A', 'Q', 'K'],
@@ -19,7 +19,7 @@ describe('probability system', () => {
 
   test('Row1 hit, bet L1 -> 20', () => {
     const sut = new ProbabilitySystem(
-      Reels.create([
+      Reels.create(0, [
         ['A', 'Q', 'K'],
         ['A', 'Q', 'K'],
         ['A', 'Q', 'K'],
@@ -32,7 +32,7 @@ describe('probability system', () => {
 
   test('Row2 hit, bet L2 -> 20', () => {
     const sut = new ProbabilitySystem(
-      Reels.create([
+      Reels.create(0, [
         ['A', 'Q', 'K'],
         ['A', 'Q', 'K'],
         ['A', 'Q', 'K'],
@@ -45,7 +45,7 @@ describe('probability system', () => {
 
   test('Row3 hit, bet L3 -> 20', () => {
     const sut = new ProbabilitySystem(
-      Reels.create([
+      Reels.create(0, [
         ['A', 'Q', 'K'],
         ['A', 'Q', 'K'],
         ['A', 'Q', 'K'],
@@ -58,8 +58,7 @@ describe('probability system', () => {
 
   test('Roll the Row3 hit, bet L3 -> 20', () => {
     const sut = new ProbabilitySystem(
-      1,
-      Reels.create([
+      Reels.create(1, [
         ['9', 'A', 'Q', 'K'],
         ['9', 'A', 'Q', 'K'],
         ['9', 'A', 'Q', 'K'],
